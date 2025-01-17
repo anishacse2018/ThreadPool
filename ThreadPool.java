@@ -27,7 +27,7 @@ public class ThreadPool {
 
     public void submit(Runnable r) {
         synchronized (taskQueue){
-            if(taskQueue.size()+1<=corePoolSize){
+            if(taskQueue.size()<corePoolSize){
                 taskQueue.add(r);
                 taskQueue.notify();
             }else{
